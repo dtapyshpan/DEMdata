@@ -1,0 +1,51 @@
+#include <cstdio>
+
+#define NAME "mountain.test"
+
+const int N = 100;
+const int M = 100;
+const int dx = 50;
+const int dvalue = 1000;
+
+void makeGraound()
+{
+}
+
+int main()
+{
+	int i = 0;
+	freopen( NAME, "wt", stdout );
+
+	printf("%d %d\n", N, M);
+
+	for( int t = 0; t < N; ++t )
+	{
+		int H = dvalue;
+
+		if( t < N / 2 ) ++i;
+		else --i;
+
+		for( int j = 0; j < M / 2; ++j )
+		{
+			if( j >= M / 2 - i ) H += dx;
+			printf("%d ", H);
+		}
+		for( int j = 0; j < M / 2; ++j )
+		{
+			if( j < i ) H -= dx;
+			printf("%d ", H);
+		}
+
+		printf("\n");
+	}
+
+	for( int i = 0; i < N; ++i )
+	{
+		for( int j = 0; j < M; ++j ) printf("0 ");
+		printf("\n");
+	}
+
+	fclose( stdout );
+
+	return 0;
+}
